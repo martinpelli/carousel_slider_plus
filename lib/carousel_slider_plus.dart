@@ -165,6 +165,8 @@ class _CarouselSliderState extends State<CarouselSlider>
       final route = ModalRoute.of(context);
       if (route?.isCurrent == false) return;
 
+      if (!state.pageController.hasClients) return;
+
       CarouselPageChangedReason previousReason = mode;
       changeMode(CarouselPageChangedReason.timed);
       int nextPage = state.pageController.page!.round() + 1;
